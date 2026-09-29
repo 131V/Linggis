@@ -66,7 +66,6 @@ class LinkedList {
 		}
 
 		current.next = null;
-		tail = current;
 	}
 
 
