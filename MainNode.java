@@ -2,17 +2,19 @@ public class MainNode {
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 
-		list.insert(67);
-		list.insert(420);
+		list.insert(10);
+		list.insert(20);
+		list.insert(30);
+		list.insert(40);
+		list.insert(50);
 
 		list.deleteHead();
-		list.deleteByPosition(3);
-
-		list.insert(69);
-		list.insert(100);
+		list.deleteTail();
 		
-		list.insertByPosition(1, 86);
-		list.insertByPosition(3, 666);
+		list.insertByPosition(1, 60);
+		list.insertByPosition(3, 70);
+
+		list.deleteByPosition(4);
 
 		System.out.println("Linked list: ");
 		list.display();
