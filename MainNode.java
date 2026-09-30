@@ -1,24 +1,41 @@
+class Anime extends Entity {
+	public Anime(Object data) {
+		super(data);
+	}
+
+	public void Genre(Object data) {
+		System.out.println(data);
+	}
+}
+
+class Digimon extends Entity {
+	public Digimon(Object data) {
+		super(data);
+	}
+
+	public void Aksi(Object data) {
+		System.out.println(data);
+	}
+}
+
 public class MainNode {
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 
-		list.insert(10);
-		list.insert(20);
-		list.insert(30);
-		list.insert(40);
-		list.insert(50);
+		Anime aku = new Anime("Digimon");
 
-		list.deleteHead();
+		Digimon kau = new Digimon("Omnimon");
+
+		list.insert(new Anime("Kakkoi"));
+		list.insert(new Digimon("Fly"));
+		list.insert(new Anime("Kawaii"));
+		list.insert(new Digimon("Roar"));
 		list.deleteTail();
-		
-		list.insertByPosition(1, 60);
-		list.insertByPosition(3, 70);
-
-		list.deleteByPosition(4);
 
 		System.out.println("Linked list: ");
 		list.display();
+		aku.Genre("Tanoshii");
+		kau.Aksi("Blast");
 
-		System.out.println(list.search(360));
 	}
 }
