@@ -1,18 +1,26 @@
 class Node {
-	int data;
+	Object data;
 	Node next;
 
-	Node(int data) {
+	Node(Object data) {
 		this.data = data;
 		this.next = null;
 	}
 }
 
-class LinkedList {
+abstract class AbstractList {
 	Node head;
 	Node tail;
 
-	public void insert(int data) {
+	public abstract void insert(Object data);
+	public abstract void deleteTail();
+	public abstract void display();
+}
+
+public class LinkedList extends AbstractList {
+
+	@Override
+	public void insert(Object data) {
 		Node newNode = new Node(data);
 
 		if (head == null) {
@@ -25,31 +33,7 @@ class LinkedList {
 		tail = newNode;
 	}
 
-  public void insertByPosition(int position, int data) {
-    Node newNode = new Node(data);
-    Node current = head;
-
-	if (position == 1) {
-		newNode.next = head;
-		head = newNode;
-		return;
-	}
-
-    for (int i = 1; i < (position-1); i++) {
-      current = current.next;
-    }
-
-    Node after = current.next;
-    current.next = newNode;
-    current.next.next = after;
-  }
-
-	public void deleteHead() {
-		if (head != null) {
-			head = head.next;
-		}
-	}
-
+	@Override
 	public void deleteTail() {
 		if (head == null) {
 			return;
@@ -68,44 +52,7 @@ class LinkedList {
 		current.next = null;
 	}
 
-
-	public void deleteByPosition(int position) {
-		Node current = head;
-
-		if (position == 1) {
-			deleteHead();
-			return;
-		}
-
-		for (int i = 1; i < position - 1; i++) {
-			current = current.next;
-		}
-
-		if (current == null || current.next == null) {
-			System.out.println("out of the position!");
-			return;
-		}
-
-		current.next = current.next.next;
-
-
-	}
-
-	public int search(int data) {
-		Node current = head;
-		int index = 0;
-		while (current.data != data) {
-			index++;
-			current = current.next;
-
-			if (current == null) {
-				System.out.println("there is no value");
-				return -1;
-			}
-		}
-		return index;
-	}
-
+	@Override
 	public void display() {
 		Node tail = head;
 
